@@ -6,16 +6,16 @@
     Something went wrong!
 </div>
 
-<article *ngIf="track" class="track">
+<article *ngIf="track" class="track-list-item">
+
     <header>
         <h2>{{ track?.trackName }}</h2>
     </header>
-    <section>
-        {{ track?.collectionCensoredName }}
+    <section class="track-info">
 
         <img src="{{ track?.artworkUrl100 }}" />
+        <p>{{ track?.collectionCensoredName }}</p>
+
     </section>
-    <footer>
-        Vithagaselvi Krishnamoorthy
-    </footer>
+    
 </article>

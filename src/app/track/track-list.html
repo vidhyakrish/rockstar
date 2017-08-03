@@ -1,9 +1,9 @@
 <div *ngIf="isLoading">
-    Loading&hellip;
+	Loading&hellip;
 </div>
 
 <article *ngFor="let track of tracks" class="track-list-item">
-
+	<img src="{{ track.artworkUrl100 }}" title="image of { track.trackName}"/>
 <!-- <div class="product">
 					<div class="product__info">
 						<img class="product__image" src="images/1.png" alt="Product 1">
@@ -19,13 +19,18 @@
 				</div> -->
 
 
-	
-	     <img src="{{ track.artworkUrl100 }}" title="image of { track.trackName}"/>
-    
-    <h4><a [routerLink]="['/track', tracks.indexOf(track)]">
-    	{{ track.trackName }}</a></h4>
-    <p>{{ track.artistName}}</p>
-    <p>{{ track.trackPrice}}</p>
-    <a [routerLink]="['/track', tracks.indexOf(track)]">View </a>
 
-</article>
+				
+				<div class="track-info" id="track-info">
+
+					<h3><a [routerLink]="['/track', tracks.indexOf(track)]">
+						{{ track.trackName.substring(0,14) }}</a></h3>
+						<p class="artist">{{ track.artistName}}</p>
+						<small>${{ track.trackPrice}}</small>
+						<div>
+							
+							<p><a [routerLink]="['/track', tracks.indexOf(track)]" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>View</span> </a></p>
+						</div>
+					</div>
+
+				</article>
