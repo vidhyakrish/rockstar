@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noEmitHelpers": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "types": ["node", "lodash"]
+  },
+  "include": [
+    "src/*.ts"
+  ],
+  "exclude":
+  [
+  "node_modules/@types/**/index.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

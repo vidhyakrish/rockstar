@@ -1,0 +1,21 @@
+<div *ngIf="isLoading">
+    Loading&hellip;
+</div>
+
+<div *ngIf="error">
+    Something went wrong!
+</div>
+
+<article *ngIf="track" class="track">
+    <header>
+        <h2>{{ track?.trackName }}</h2>
+    </header>
+    <section>
+        {{ track?.collectionCensoredName }}
+
+        <img src="{{ track?.artworkUrl100 }}" />
+    </section>
+    <footer>
+        Vithagaselvi Krishnamoorthy
+    </footer>
+</article>

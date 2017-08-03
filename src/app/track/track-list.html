@@ -1,0 +1,14 @@
+<div *ngIf="isLoading">
+    Loading&hellip;
+</div>
+
+<article *ngFor="let track of tracks" class="track-list-item">
+	     <img src="{{ track.artworkUrl100 }}" title="image of { track.trackName}"/>
+    
+    <h4><a [routerLink]="['/track', tracks.indexOf(track)]">
+    	{{ track.trackName }}</a></h4>
+    <p>{{ track.artistName}}</p>
+    <p>{{ track.trackPrice}}</p>
+    <a [routerLink]="['/track', tracks.indexOf(track)]">View </a>
+
+</article>
