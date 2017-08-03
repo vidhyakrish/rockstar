@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
      
     metadata: {
-        title: 'Rock Star',
+        title: 'Rock Tracks',
         baseUrl: '/'
     },
 
@@ -42,7 +42,7 @@ module.exports = {
         
         new webpack.optimize.OccurenceOrderPlugin(true),
         new HtmlWebpackPlugin({
-            title: 'Demo Application',
+            title: 'Rock Tracks',
             template: 'src/index.ejs',
             chunksSortMode: 'dependency',
             inject: false

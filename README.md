@@ -1,7 +1,10 @@
 # An Angular 2 + Webpack + TypeScript application
 
-Angular 2 application (currently only HTTP service and component). 
+A web application that connects to an Apple REST web service
+and returns a list of rock tracks. (currently only HTTP service and component). 
 
+Tracks are retrieved from the following REST service: -
+https://itunes.apple.com/search?term=rock&media=music
 
 ### Installation
 
