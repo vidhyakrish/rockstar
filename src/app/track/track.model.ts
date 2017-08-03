@@ -18,7 +18,7 @@ export class Track{
     artworkUrl100:string 
     collectionPrice:number
     trackPrice:number 
-    releaseDate:number
+    releaseDate:string
     collectionExplicitness:string 
     trackExplicitness:string
     discCount:number

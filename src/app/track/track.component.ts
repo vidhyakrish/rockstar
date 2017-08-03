@@ -20,8 +20,7 @@ export class TrackComponent implements OnInit, OnDestroy {
     private track: Track;
     private error: Response;
     private isLoading: boolean = true;
-    private releasedTrack: string = moment("2013-03-10T02:00:00Z").format('DD-MM-YYYY');
-    private duration: string = moment(345678).format("m:ss");
+
 
 
     constructor(
@@ -41,8 +40,17 @@ export class TrackComponent implements OnInit, OnDestroy {
             ()      => this.isLoading = false
             );
 
+
+
+
     }
 
+    ngOnChanges() {
+        // if(this.track){
+            //     this.releasedTrack= moment(this.track.releaseDate).format('DD-MM-YYYY');
+            // }
 
-    ngOnDestroy(): void {}
-}
+        }
+
+        ngOnDestroy(): void {}
+    }

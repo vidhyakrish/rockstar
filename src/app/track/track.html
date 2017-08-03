@@ -18,7 +18,7 @@
         
         
         <small> {{duration}}</small> 
-        <p>Release date : {{ releasedTrack   }} </p> <!-- TODO Use separate momet function to return date -->
+        <p>Release date : {{ track.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
 
         <img src="{{ track?.artworkUrl100 }}" />
         <p>{{ track?.collectionCensoredName }}</p>
