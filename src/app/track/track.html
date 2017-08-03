@@ -9,13 +9,21 @@
 <article *ngIf="track" class="track-list-item">
 
     <header>
-        <h2>{{ track?.trackName }}</h2>
+        <h2><a href="{{ trackViewUrl}}">{{ track?.trackName }}</a></h2>
     </header>
     <section class="track-info">
 
+        <p class="artist">{{ track.artistName}}</p>
+
+        
+        
+        <small> {{duration}}</small> 
+        <p>Release date : {{ releasedTrack   }} </p> <!-- TODO Use separate momet function to return date -->
+
         <img src="{{ track?.artworkUrl100 }}" />
         <p>{{ track?.collectionCensoredName }}</p>
+        <small>${{ track.trackPrice}}</small>
 
     </section>
-    
+
 </article>

@@ -12,28 +12,28 @@ const API_ENDPOINT = 'https://itunes.apple.com/search?term=rock&media=music';
  *
  * TODO: Move API endpoint to app config
  */
-@Injectable()
-export class TrackService {
-    constructor(private http: Http) {
+ @Injectable()
+ export class TrackService {
+     constructor(private http: Http) {
 
-    }
+     }
 
-    public get(trackId: number) {
-        //TODO: Move get single track here
-       // console.log(this.listOfTracks);
-    }
+     public get(trackId: number) {
+         //TODO: Move get single track here
+         // console.log(this.listOfTracks);
+     }
 
 
-    public getAll(): Observable<Track[]> {
-        return this.http
-            .get(API_ENDPOINT)
-            .map(this.extractData);
-    }
+     public getAll(): Observable<Track[]> {
+         return this.http
+         .get(API_ENDPOINT)
+         .map(this.extractData);
+     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        let listOfTracks = body.results;
-        console.log(listOfTracks);
-        return listOfTracks || { };
-    }
-}
+     private extractData(res: Response) {
+         let body = res.json();
+         let listOfTracks = body.results;
+         
+         return listOfTracks || { };
+     }
+ }

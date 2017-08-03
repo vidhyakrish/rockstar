@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= webpackConfig.metadata.title %></title>
+	<title><%= webpackConfig.metadata.title %></title>
 
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <base href="<%= webpackConfig.metadata.baseUrl %>" />
+	<base href="<%= webpackConfig.metadata.baseUrl %>" />
 </head>
 <body>
-<da-app>Loading&hellip;</da-app>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %><script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %>
+	<da-app>Loading&hellip;</da-app>
+	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %><script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %>
+	<script src="node_modules/moment/moment.js" />
 </body>
 </html>

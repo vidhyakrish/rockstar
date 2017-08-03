@@ -1,36 +1,18 @@
 <div *ngIf="isLoading">
 	Loading&hellip;
 </div>
-
 <article *ngFor="let track of tracks" class="track-list-item">
 	<img src="{{ track.artworkUrl100 }}" title="image of { track.trackName}"/>
-<!-- <div class="product">
-					<div class="product__info">
-						<img class="product__image" src="images/1.png" alt="Product 1">
-						<h3 class="product__title">Chryseia</h3>
-						<span class="product__year extra highlight">2011</span>
-						<span class="product__region extra highlight">Douro</span>
-						<span class="product__varietal extra highlight">Touriga Nacional</span>
-						<span class="product__alcohol extra highlight">13%</span>
-						<span class="product__price highlight">$55.90</span>
-						<button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
-					</div>
-					<label class="action action--compare-add"><input class="check-hidden" type="checkbox"><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
-				</div> -->
-
-
-
+	
+	
+	<div class="track-info" id="track-info">
+		<h3><a [routerLink]="['/track', tracks.indexOf(track)]">
+			{{ track.trackName.substring(0,14) }}</a></h3>
+			<p class="artist">{{ track.artistName}}</p>
+			<small>${{ track.trackPrice}}</small>
+			<div>
 				
-				<div class="track-info" id="track-info">
-
-					<h3><a [routerLink]="['/track', tracks.indexOf(track)]">
-						{{ track.trackName.substring(0,14) }}</a></h3>
-						<p class="artist">{{ track.artistName}}</p>
-						<small>${{ track.trackPrice}}</small>
-						<div>
-							
-							<p><a [routerLink]="['/track', tracks.indexOf(track)]" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>View</span> </a></p>
-						</div>
-					</div>
-
-				</article>
+				<p><a [routerLink]="['/track', tracks.indexOf(track)]" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>View</span> </a></p>
+			</div>
+		</div>
+	</article>
