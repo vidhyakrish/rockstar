@@ -12,16 +12,15 @@ import { Response } from '@angular/http';
 @Component({
     selector: 'da-article',
     templateUrl: './track.html',
-    styleUrls: ['./track.scss'],
+    styleUrls: ['../styles/track.scss'],
     encapsulation: ViewEncapsulation.Emulated,
     providers: [TrackService]
 })
 export class TrackComponent implements OnInit, OnDestroy {
     private track: Track;
+    private randomTracks:Track[];
     private error: Response;
     private isLoading: boolean = true;
-
-
 
     constructor(
         private route: ActivatedRoute,
@@ -30,27 +29,32 @@ export class TrackComponent implements OnInit, OnDestroy {
 
     }
 
+    public chooseRandomTracks(){
+
+        this.trackService.getRandomTracks().subscribe(
+            (data)  => this.randomTracks = data,
+            (error) => this.error = error,
+            ()      => this.isLoading = false
+            );
+    }
 
     ngOnInit(): void {
         let TrackId = this.route.snapshot.params['trackId'];
 
-        this.trackService.getAll().subscribe(
-            (data)  => this.track = data[TrackId],
+        this.trackService.get(TrackId).subscribe(
+            (data)  => this.track = data,
             (error) => this.error = error,
             ()      => this.isLoading = false
             );
 
 
 
+        this.chooseRandomTracks();
+
 
     }
 
-    ngOnChanges() {
-        // if(this.track){
-            //     this.releasedTrack= moment(this.track.releaseDate).format('DD-MM-YYYY');
-            // }
 
-        }
 
-        ngOnDestroy(): void {}
-    }
+    ngOnDestroy(): void {}
+}

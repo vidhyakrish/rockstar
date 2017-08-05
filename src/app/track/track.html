@@ -1,29 +1,43 @@
 <div *ngIf="isLoading">
     Loading&hellip;
 </div>
-
 <div *ngIf="error">
     Something went wrong!
 </div>
+<article *ngIf="track" class="track-list-item list-track">
 
-<article *ngIf="track" class="track-list-item">
-
-    <header>
-        <h2><a href="{{ trackViewUrl}}">{{ track?.trackName }}</a></h2>
-    </header>
     <section class="track-info">
-
-        <p class="artist">{{ track.artistName}}</p>
-
-        
-        
-        <small> {{duration}}</small> 
-        <p>Release date : {{ track.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
-
         <img src="{{ track?.artworkUrl100 }}" />
-        <p>{{ track?.collectionCensoredName }}</p>
-        <small>${{ track.trackPrice}}</small>
+        <section class="track-info" id="track-info">
+            <h3>{{ track.trackName}}</h3>
+            <p class="artist">{{ track.artistName}}</p>
 
+            <small> {{duration}}</small>
+            <p>Release date : {{ track.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
+
+            <small>${{ track.trackPrice}}</small>
+
+            <a href="{{ track.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details </span></a>
+        </section>
     </section>
-
 </article>
+<aside>
+    <header>
+        <h2><a href="{{ trackViewUrl}}">{{ randomTrack?.trackName }}</a></h2>
+    </header>
+    <article class=" track-list-item" *ngFor="let randomTrack of randomTracks">
+        <img src="{{ randomTrack.artworkUrl100 }}" title="image of { randomTrack.trackName}"/>
+        <div class="track-info" id="track-info">
+            <h3><a [routerLink]="['/track', randomTracks.indexOf(randomTrack)]">
+                {{ randomTrack.trackName.substring(0,20) }}</a></h3>
+                <p class="artist">{{ randomTrack.artistName}}</p>
+                <small> {{duration}}</small>
+                <p>Release date : {{ randomTrack.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
+                <small>${{ randomTrack.trackPrice}}</small>
+
+                <a href="{{ randomTrack.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details</span> </a> 
+
+
+            </div>
+        </article>
+    </aside>

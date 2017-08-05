@@ -1,0 +1,165 @@
+@import "_variables";
+
+
+// Styleguide base
+.article {
+	header {
+		h2 {
+			color: $heading-color;
+
+			&:hover {
+				color: $heading-highlight-color;
+			}
+		}
+	}
+}
+.bp-header {
+	width: 90%;
+	max-width: 69em;
+	margin: 0 auto;
+	padding: 6em 1.875em 1.875em;
+	text-align: center;
+}
+
+.bp-header h1 {
+	font-size: 2.125em;
+	font-weight: 400;
+	line-height: 1.3;
+	margin: 0 0 .6em 0;
+}
+
+
+.grid {
+	margin: 0 auto;
+	padding: 4em 1em;
+	max-width: 1200px;
+	text-align: center;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/* product */
+.track-list-item {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	min-width: 16em;
+	margin: 0 0.25em 1.5em;
+	padding: 0 0 1em;
+	background: #1b1f2f;
+	border-radius: 5px;
+	&.list-track{
+		margin-left:20px;
+		width:65%;
+	}
+
+}
+
+.track-info {
+	small,h3 a{
+		color:#34d8d2;
+		font-weight: normal;
+	}
+	div{
+		float:right;
+		list-style-type: none;
+		margin-right: 10px;
+
+	}
+}
+
+.artist{
+	font-size:0.75em;
+}
+
+article img {
+	display: block;
+	margin: 0 10px 0 0;
+	max-width: 100%;
+	float: left;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	padding:0;
+}
+
+.action {
+	display: inline-block;
+	font-size: 1em;
+	white-space: nowrap;
+	padding: 0.85em 1.25em;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	text-align: center;
+	&:focus {
+		outline: none;
+	}
+}
+
+.action--button {
+	background: #2C2D34;
+	color: #fff;
+	border-radius: 2px;
+	-webkit-transition: background 0.2s;
+	transition: background 0.2s;
+	float:right;
+	& span{
+		margin-left:20px;
+	}
+	&:hover {
+		background: #000000;
+	}
+}
+
+.action__text {
+	font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: .813em;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.action__text--invisible {
+	position: absolute;
+	top: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.action--button i + span {
+	margin-left: 1em;
+}
+
+
+.flexbox .grid {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+
+.flexbox .track-list-item{
+	display: block;
+	-webkit-flex: 0 0 16em;
+	-ms-flex: 0 0 16em;
+	flex: 0 0 16em;
+}
