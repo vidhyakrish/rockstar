@@ -25,7 +25,7 @@ export class Track{
     discNumber:number
     trackCount:number 
     trackNumber:number
-    trackTimeMillis:number
+    trackTimeMillis:any
     country:string 
     currency:string
     primaryGenreName:string 

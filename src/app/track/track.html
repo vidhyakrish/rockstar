@@ -11,9 +11,9 @@
         <section class="track-info" id="track-info">
             <h3>{{ track.trackName}}</h3>
             <p class="artist">{{ track.artistName}}</p>
-
-            <small> {{duration}}</small>
-            <p>Release date : {{ track.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
+            <small class="duration">{{ duration}}</small>
+            
+            <p>Release date : {{releasedDate}}</p> <!-- TODO Use separate momet function to return date -->
 
             <small>${{ track.trackPrice}}</small>
 
@@ -31,7 +31,7 @@
             <h3><a [routerLink]="['/track', randomTracks.indexOf(randomTrack)]">
                 {{ randomTrack.trackName.substring(0,20) }}</a></h3>
                 <p class="artist">{{ randomTrack.artistName}}</p>
-                <small> {{duration}}</small>
+
                 <p>Release date : {{ randomTrack.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
                 <small>${{ randomTrack.trackPrice}}</small>
 

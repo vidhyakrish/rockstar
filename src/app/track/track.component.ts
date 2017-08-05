@@ -21,6 +21,8 @@ export class TrackComponent implements OnInit, OnDestroy {
     private randomTracks:Track[];
     private error: Response;
     private isLoading: boolean = true;
+    private duration: any;
+    private releasedDate : string ;
 
     constructor(
         private route: ActivatedRoute,
@@ -38,23 +40,29 @@ export class TrackComponent implements OnInit, OnDestroy {
             );
     }
 
+    public getDuration(){
+        return moment(this.track.trackTimeMillis).format("mm:ss");
+    }
+
+
+    public getReleaseDate(){
+        return moment(this.track.releaseDate).format("DD-MM-YYYY");
+    }
+
     ngOnInit(): void {
         let TrackId = this.route.snapshot.params['trackId'];
 
         this.trackService.get(TrackId).subscribe(
             (data)  => this.track = data,
             (error) => this.error = error,
-            ()      => this.isLoading = false
-            );
-
-
+            () => {  this.duration = this.getDuration(),
+                this.releasedDate = this.getReleaseDate(),
+                this.isLoading =false},
+                
+                );
 
         this.chooseRandomTracks();
 
-
     }
-
-
-
     ngOnDestroy(): void {}
 }
