@@ -4,40 +4,46 @@
 <div *ngIf="error">
     Something went wrong!
 </div>
-<article *ngIf="track" class="track-list-item list-track">
+<article *ngIf="track" class="track-list-item list-track col-12 col-sm-6 col-lg-8">
 
     <section class="track-info">
         <img src="{{ track?.artworkUrl100 }}" />
         <section class="track-info" id="track-info">
-            <h3>{{ track.trackName}}</h3>
+            <h3>{{ track.trackName}}  <small class="duration">{{ duration}}</small>  </h3>
             <p class="artist">{{ track.artistName}}</p>
-            <small class="duration">{{ duration}}</small>
             
-            <p>Release date : {{releasedDate}}</p> <!-- TODO Use separate momet function to return date -->
+            <small class="releasedate">Released: {{releasedDate}}  </small>
+            
 
-            <small>${{ track.trackPrice}}</small>
 
-            <a href="{{ track.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details </span></a>
+
+            <span class="price"><i class="fa fa-usd" aria-hidden="true"></i>  {{ track.trackPrice}}</span> 
+            <div>
+
+                <p><a href="{{ track.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details </span></a></p></div>
+
+
+            </section>
         </section>
-    </section>
-</article>
-<aside>
-    <header>
-        <h2><a href="{{ trackViewUrl}}">{{ randomTrack?.trackName }}</a></h2>
-    </header>
-    <article class=" track-list-item" *ngFor="let randomTrack of randomTracks">
-        <img src="{{ randomTrack.artworkUrl100 }}" title="image of { randomTrack.trackName}"/>
-        <div class="track-info" id="track-info">
-            <h3><a [routerLink]="['/track', randomTracks.indexOf(randomTrack)]">
-                {{ randomTrack.trackName.substring(0,20) }}</a></h3>
-                <p class="artist">{{ randomTrack.artistName}}</p>
+    </article>
+    <aside class="col-6 col-lg-4">
+        <header>
+            <h1>You might also like </h1>
+            <h2><a href="{{ trackViewUrl}}">{{ randomTrack?.trackName }}</a></h2>
+        </header>
+        <article class=" track-list-item" *ngFor="let randomTrack of randomTracks">
+            <img src="{{ randomTrack.artworkUrl100 }}" title="image of { randomTrack.trackName}"/>
+            <div class="track-info" id="track-info">
+                <h3><a [routerLink]="['/track', randomTracks.indexOf(randomTrack)]">
+                    {{ randomTrack.trackName.substring(0,20) }}</a>  </h3>
+                    <p class="artist">{{ randomTrack.artistName}}</p>
 
-                <p>Release date : {{ randomTrack.releaseDate.substring(0,10)  }} </p> <!-- TODO Use separate momet function to return date -->
-                <small>${{ randomTrack.trackPrice}}</small>
+                    <small class="releasedate">Release date : {{ randomTrack.releaseDate.substring(0,10)  }} </small> <!-- TODO Use separate momet function to return date -->
+                    <span class="price"><i class="fa fa-usd" aria-hidden="true"></i>${{ randomTrack.trackPrice}}</span>
 
-                <a href="{{ randomTrack.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details</span> </a> 
+                    <a href="{{ randomTrack.trackViewUrl}}" class="action action--button action--view"><i class="fa fa-arrow-right"></i><span>More details</span> </a> 
 
 
-            </div>
-        </article>
-    </aside>
+                </div>
+            </article>
+        </aside>
