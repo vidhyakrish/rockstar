@@ -16,5 +16,5 @@ Run `npm start` and point your browser to `http://localhost:9045/`.
 
 Use `npm test` to run test suite.  
 
- end-to-end tests not included in this project (I use Protractor for this purpose) due to time constraints. 
+ end-to-end tests not included in this project due to time constraints. (I use Protractor for this purpose) 
 
